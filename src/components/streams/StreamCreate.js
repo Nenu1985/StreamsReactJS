@@ -3,11 +3,38 @@ import { Field, reduxForm } from 'redux-form';
 // reduxForm similar to 'connect' function from 'redux'
 
 class StreamCreate extends React.Component {
+
     renderInput(formProps) {
+        /*
+        formProps object example (contains: input, meta, value) in the case of ValidationError:
+        {
+            "input": {
+                "name": "title",
+                "value": ""
+            },
+            "meta": {
+                "active": false,
+                "asyncValidating": false,
+                "autofilled": false,
+                "dirty": false,
+                "error": "You must enter a title",
+                "form": "streamCreate",
+                "invalid": true,
+                "pristine": true,
+                "submitting": false,
+                "submitFailed": false,
+                "touched": false,
+                "valid": false,
+                "visited": false
+            },
+            "label": "Enter Title"
+        }
+        */
         return (
             <div className="field">
                 <label className="">{formProps.label}</label>
                 <input {...formProps.input} />
+                <div>{formProps.meta.error} </div>
             </div>
 
         );
@@ -31,7 +58,24 @@ class StreamCreate extends React.Component {
     };
 };
 
+const validate = (formValues) => {
+    const errors = {};
+
+    if (!formValues.title) {
+        // only ran if the user did not enter title
+        // 'title' key must be the same as the field's name in order
+        // to let redux-form transfer an error to a particular 'Field' (title)
+        errors.title = 'You must enter a title';
+    }
+    if (!formValues.description) {
+        errors.description = 'You must enter a description';
+    }
+
+    return errors;  // return an empty object in the case we don't have validation errors
+};
+
 // connect reduxForm to component
 export default reduxForm({
-    form: 'streamCreate'
+    form: 'streamCreate',
+    validate: validate  // wiring up validate function
 })(StreamCreate);
