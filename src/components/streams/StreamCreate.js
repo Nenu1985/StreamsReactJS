@@ -1,10 +1,19 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, touch } from 'redux-form';
 // reduxForm similar to 'connect' function from 'redux'
 
 class StreamCreate extends React.Component {
 
-    renderInput(formProps) {
+    renderError({ error, touched }) {
+        if (touched && error) {
+            return (
+                <div className="ui error message">
+                    <div className="header">{error}</div>
+                </div>
+            );
+        }
+    }
+    renderInput = (formProps)  => {
         /*
         formProps object example (contains: input, meta, value) in the case of ValidationError:
         {
@@ -23,7 +32,7 @@ class StreamCreate extends React.Component {
                 "pristine": true,
                 "submitting": false,
                 "submitFailed": false,
-                "touched": false,
+                "touched": false,  // user put cursor into the field and then deselected it
                 "valid": false,
                 "visited": false
             },
@@ -33,8 +42,8 @@ class StreamCreate extends React.Component {
         return (
             <div className="field">
                 <label className="">{formProps.label}</label>
-                <input {...formProps.input} />
-                <div>{formProps.meta.error} </div>
+                <input {...formProps.input} autoComplete="off" />
+                {this.renderError(formProps.meta)}
             </div>
 
         );
@@ -51,7 +60,6 @@ class StreamCreate extends React.Component {
             <form className="ui form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <Field name="title" component={this.renderInput} label="Enter Title" />
                 <Field name="description" component={this.renderInput} label="Enter Description" />
-                <Field name="description2" component={this.renderInput} />
                 <button className="ui button primary">Submit</button>
             </form>
         );
