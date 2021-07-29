@@ -14,6 +14,7 @@ class StreamCreate extends React.Component {
         }
     }
     renderInput = (formProps)  => {
+        const className = `field ${formProps.meta.error && formProps.meta.touched ? 'error' : ''}`
         /*
         formProps object example (contains: input, meta, value) in the case of ValidationError:
         {
@@ -40,7 +41,7 @@ class StreamCreate extends React.Component {
         }
         */
         return (
-            <div className="field">
+            <div className={className}>
                 <label className="">{formProps.label}</label>
                 <input {...formProps.input} autoComplete="off" />
                 {this.renderError(formProps.meta)}
@@ -57,7 +58,7 @@ class StreamCreate extends React.Component {
         return (
             // handleSubmit is a part of reduxForm. It performs event.preventDefault automatically.
             // Instead of 'event' object it returns 'formValues'
-            <form className="ui form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+            <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <Field name="title" component={this.renderInput} label="Enter Title" />
                 <Field name="description" component={this.renderInput} label="Enter Description" />
                 <button className="ui button primary">Submit</button>
