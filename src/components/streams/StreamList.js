@@ -1,4 +1,3 @@
-import { right } from 'inquirer/lib/utils/readline';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -55,7 +54,6 @@ class StreamList extends React.Component {
         else return <div>Log in</div>
     }
     render() {
-        console.log(this.props.streams);
         return (
             <div>
                 <h2>Streams</h2>
@@ -64,7 +62,6 @@ class StreamList extends React.Component {
                 </div>
                 {this.renderCreateButton()}
             </div>
-            
         )
     };
 }
