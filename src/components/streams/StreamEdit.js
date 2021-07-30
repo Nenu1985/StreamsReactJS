@@ -11,7 +11,10 @@ class StreamEdit extends React.Component {
         this.props.fetchStream(this.props.match.params.id);
     }
     onSubmit = (formValues) => {
-
+        this.props.editStream(
+            this.props.match.params.id,
+            formValues
+        )
     }
     // StreamForm is an ReduxForm. We can pass 'initialValues' props to the component
     // and they will be displayed in the form
