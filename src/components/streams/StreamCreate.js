@@ -16,6 +16,8 @@ class StreamCreate extends React.Component {
         }
     }
     renderInput = (formProps)  => {
+        // input component to be rendered for the Stream's title and description
+        // It's an input argument for the <Field /> component
         const className = `field ${formProps.meta.error && formProps.meta.touched ? 'error' : ''}`
         /*
         formProps object example (contains: input, meta, value) in the case of ValidationError:
