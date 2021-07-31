@@ -25,6 +25,7 @@ const StreamShow = (props) => {
             };
         }
     });
+
     const buildPlayer = () => {
 
         if (flvPlayer || !props.stream) {
