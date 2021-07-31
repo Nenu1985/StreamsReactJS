@@ -2950,7 +2950,7 @@
     "es6-symbol" "~3.1.1"
     "event-emitter" "~0.3.5"
 
-"es6-promise@^4.0.5":
+"es6-promise@^4.0.5", "es6-promise@^4.2.8":
   "integrity" "sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w=="
   "resolved" "https://registry.npmjs.org/es6-promise/-/es6-promise-4.2.8.tgz"
   "version" "4.2.8"
@@ -3595,6 +3595,14 @@
   "integrity" "sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg=="
   "resolved" "https://registry.npmjs.org/flatten/-/flatten-1.0.3.tgz"
   "version" "1.0.3"
+
+"flv.js@^1.6.1":
+  "integrity" "sha512-6/ffUPbFaYf7QsdcZC43PQmEsi9Fwlp89Oq0bz8gNlj0eSMUhyHFxESxuLNSFgIEle+ChxqoF7kL2pL7xdam2A=="
+  "resolved" "https://registry.npmjs.org/flv.js/-/flv.js-1.6.1.tgz"
+  "version" "1.6.1"
+  dependencies:
+    "es6-promise" "^4.2.8"
+    "webworkify-webpack" "^2.1.5"
 
 "follow-redirects@^1.0.0", "follow-redirects@^1.10.0":
   "integrity" "sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg=="
@@ -8749,6 +8757,11 @@
   "integrity" "sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg=="
   "resolved" "https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.4.tgz"
   "version" "0.1.4"
+
+"webworkify-webpack@^2.1.5":
+  "integrity" "sha512-2akF8FIyUvbiBBdD+RoHpoTbHMQF2HwjcxfDvgztAX5YwbZNyrtfUMgvfgFVsgDhDPVTlkbb5vyasqDHfIDPQw=="
+  "resolved" "https://registry.npmjs.org/webworkify-webpack/-/webworkify-webpack-2.1.5.tgz"
+  "version" "2.1.5"
 
 "whatwg-encoding@^1.0.1":
   "integrity" "sha512-b5lim54JOPN9HtzvK9HFXvBma/rnfFeqsic0hSpjtDbVxR3dJKLc+KB4V6GgiGOvl7CY/KNh8rxSo9DKQrnUEw=="
