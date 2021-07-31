@@ -12,9 +12,18 @@ const StreamShow = (props) => {
         const { id } = props.match.params;
         props.fetchStream(id);
         buildPlayer();
+        console.log('FLV Mounting...')
     }, []);
+
     useEffect(() => {
+        console.log('FLV Rerendering...')
         buildPlayer();
+        if (flvPlayer) {
+            return function cleanup() {
+                console.log('FLV Cleaning up...');
+                flvPlayer.destroy();
+            };
+        }
     });
     const buildPlayer = () => {
 
