@@ -8,6 +8,9 @@ const Header = () => {
             <Link to="/" className="item">
                 Streamer
             </Link>
+            <Link to="/context" className="item">
+                Context
+            </Link>
             <div className="right menu">
                 <Link to="/" className="item">
                     All Streams
