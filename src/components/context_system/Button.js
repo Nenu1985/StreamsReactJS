@@ -5,10 +5,12 @@ class Button extends React.Component {
 
     // Hooking up the context to our class. contextType is a very specific field.
     // We can't name it in another way.
-    static contextType = LanguageContext;
+    // static contextType = LanguageContext;
 
-    getTextDependingOnLanguage() {
-        switch (this.context) {
+
+    getTextDependingOnLanguage(language) {
+
+        switch (language) {
             case 'dutch':
                 return 'Voorleggen'
             case 'russian':
@@ -21,7 +23,9 @@ class Button extends React.Component {
 
         return (
             <button className="ui button primary" >
-                {this.getTextDependingOnLanguage()}
+                <LanguageContext.Consumer>
+                    {(value) => this.getTextDependingOnLanguage(value)}
+                </LanguageContext.Consumer>
             </button>
         )
     }
