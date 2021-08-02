@@ -1,12 +1,27 @@
 import React from 'react';
+import LanguageContext from './contexts/LangugageContext';
 
-const Field = () => {
-    return (
-        <div className="ui field">
-            <label>Name</label>
-            <input ></input>
-        </div>
-    )
+class Field extends React.Component {
+
+    getTextDependingOnLanguage() {
+        switch (this.context) {
+            case 'dutch':
+                return 'Naam'
+            case 'russian':
+                return 'Имя'
+            default:
+                return 'Name'
+        }
+    }
+    render() {
+        return (
+            <div className="ui field">
+                <label>{this.getTextDependingOnLanguage()}</label>
+                <input ></input>
+            </div>
+        )
+    }
 }
 
+Field.contextType = LanguageContext;
 export default Field;

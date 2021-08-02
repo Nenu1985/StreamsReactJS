@@ -7,11 +7,21 @@ class Button extends React.Component {
     // We can't name it in another way.
     static contextType = LanguageContext;
 
+    getTextDependingOnLanguage() {
+        switch (this.context) {
+            case 'dutch':
+                return 'Voorleggen'
+            case 'russian':
+                return 'Подтвердить'
+            default:
+                return 'Submit'
+        }
+    }
     render() {
 
         return (
             <button className="ui button primary" >
-                Submit
+                {this.getTextDependingOnLanguage()}
             </button>
         )
     }

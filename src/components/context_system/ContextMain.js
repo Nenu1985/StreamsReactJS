@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import UserCreate from './UserCreate';
+import LangugageContext from './contexts/LangugageContext';
+
 
 const ContextMain = () => {
     const [language, setLanguage] = useState('english')
@@ -18,7 +20,9 @@ const ContextMain = () => {
             </div>
             <div>{language}</div>
             <div>
-                <UserCreate />
+                <LangugageContext.Provider value={language}>
+                    <UserCreate />
+                </LangugageContext.Provider>
             </div>
         </div>
     )
