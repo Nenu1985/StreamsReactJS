@@ -7,6 +7,7 @@ import StreamList from './streams/StreamList';
 import StreamDelete from './streams/StreamDelete';
 import Header from './Header';
 import history from '../history';
+import ContextMain from './context_system/ContextMain'
 
 // history object which is passed to Router replaces the default history
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
                         <Route path="/streams/edit/:id" exact component={StreamEdit} />
                         <Route path="/streams/delete/:id" exact component={StreamDelete} />
                         <Route path="/streams/:id" exact component={StreamShow} />
+                        <Route path="/context" exact component={ContextMain} />
                     </Switch>
                 </div>
             </Router>
